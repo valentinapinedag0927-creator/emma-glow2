@@ -3,36 +3,48 @@
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>Emma Glow</title>
+  <title>Emma Glow | Skincare AI</title>
   
   <script src="https://cdn.tailwindcss.com"></script>
   
-  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600;700&display=swap" rel="stylesheet">
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;600;700&display=swap" rel="stylesheet">
 
   <script>
-    // Configuración para que respete tus colores originales
     tailwind.config = {
       theme: {
         extend: {
           colors: {
-            'emma-pink': '#db2777', 
-            'emma-gold': '#d4af37',
-            'emma-dark': '#111827',
+            'emma': {
+              'pink': '#fdf2f2',   // Fondo rosa muy suave
+              'accent': '#db2777', // Fucsia para botones y títulos
+              'gold': '#c9af5d',   // Dorado para detalles premium
+              'dark': '#1f2937',   // Gris casi negro para textos legibles
+              'rose': '#fb7185',   // Rosa intermedio
+            }
+          },
+          fontFamily: {
+            sans: ['Inter', 'sans-serif'],
           }
         }
       }
     }
   </script>
+  <style>
+    body { background-color: #fdf2f2; margin: 0; }
+  </style>
 </head>
-<body class="bg-pink-50">
+<body>
   <div id="root">
-    <h1 style="text-align: center; margin-top: 50px; color: #db2777; font-family: sans-serif;">Cargando Emma Glow...</h1>
+    <div style="display: flex; justify-content: center; align-items: center; height: 100vh; font-family: sans-serif; color: #db2777;">
+      <h2>Cargando Emma Glow...</h2>
+    </div>
   </div>
 
   <script type="module">
     import { createRoot } from 'https://esm.sh/react-dom/client';
     import React from 'https://esm.sh/react';
-    // Traductor para tu archivo App.tsx
+    
+    // Conexión directa a tu archivo de lógica
     import App from 'https://esm.sh/gh/valentinapinedag0927-creator/emma-glow2/App.tsx';
 
     const root = createRoot(document.getElementById('root'));
