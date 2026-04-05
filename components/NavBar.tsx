@@ -62,8 +62,12 @@ const NavBar: React.FC<NavBarProps> = ({ currentView, setView, cartCount, onLogo
                 </button>
                 ))}
                 
-                <button onClick={onLogout} className="hidden md:flex flex-row items-center space-x-2 text-gray-400 hover:text-red-400 ml-4 hover:bg-red-50 p-2 rounded-xl transition-colors">
-                    <LogOut size={20} />
+                <button onClick={onLogout} className={`flex items-center gap-2 px-4 py-2 rounded-full transition-all ${
+  currentView === item.id 
+    ? 'bg-[#ec4899] text-white shadow-md' // <-- AQUÍ es donde va el color
+    : 'text-gray-500 hover:text-[#ec4899] hover:bg-pink-50'
+}`}
+                  <LogOut size={20} />
                 </button>
             </div>
         </div>
