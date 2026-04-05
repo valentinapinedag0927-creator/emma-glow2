@@ -11,13 +11,19 @@
       <h1 style="text-align: center; margin-top: 50px; color: #db2777;">Cargando Emma Glow...</h1>
     </div>
 <script type="module">
-  import __react_refresh_runtime__ from 'https://esm.sh/react-refresh/runtime';
   import { createRoot } from 'https://esm.sh/react-dom/client';
-  import React from 'react';
-  import App from './App.tsx'; // <--- Aquí sí ponemos el .tsx
+  import React from 'https://esm.sh/react';
 
+  // Intentamos forzar un mensaje directo en pantalla
   const root = createRoot(document.getElementById('root'));
-  root.render(React.createElement(App));
+  root.render(React.createElement('h1', { 
+    style: { 
+      color: '#db2777', 
+      textAlign: 'center', 
+      marginTop: '50px',
+      fontFamily: 'sans-serif' 
+    } 
+  }, '¡React está vivo! Ahora intentaremos cargar el escáner...'));
 </script>
   </body>
 </html>
