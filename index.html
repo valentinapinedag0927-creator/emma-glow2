@@ -1,24 +1,42 @@
 <!DOCTYPE html>
 <html lang="es">
-  <head>
-    <meta charset="UTF-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>Emma Glow</title>
-    <script src="https://cdn.tailwindcss.com"></script>
-  </head>
-  <body class="bg-pink-50">
-    <div id="root">
-      <h1 style="text-align: center; margin-top: 50px; color: #db2777;">Cargando Emma Glow...</h1>
-    </div>
-<script type="module">
-  import { createRoot } from 'https://esm.sh/react-dom/client';
-  import React from 'https://esm.sh/react';
-  // Este es el "traductor" que lee tu archivo App.tsx
-  import App from 'https://esm.sh/gh/valentinapinedag0927-creator/emma-glow2/App.tsx';
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Emma Glow</title>
+  
+  <script src="https://cdn.tailwindcss.com"></script>
+  
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600;700&display=swap" rel="stylesheet">
 
-  const root = createRoot(document.getElementById('root'));
-  // Aquí es donde sucede la magia y aparece tu diseño
-  root.render(React.createElement(App));
-</script>
-  </body>
+  <script>
+    // Configuración para que respete tus colores originales
+    tailwind.config = {
+      theme: {
+        extend: {
+          colors: {
+            'emma-pink': '#db2777', 
+            'emma-gold': '#d4af37',
+            'emma-dark': '#111827',
+          }
+        }
+      }
+    }
+  </script>
+</head>
+<body class="bg-pink-50">
+  <div id="root">
+    <h1 style="text-align: center; margin-top: 50px; color: #db2777; font-family: sans-serif;">Cargando Emma Glow...</h1>
+  </div>
+
+  <script type="module">
+    import { createRoot } from 'https://esm.sh/react-dom/client';
+    import React from 'https://esm.sh/react';
+    // Traductor para tu archivo App.tsx
+    import App from 'https://esm.sh/gh/valentinapinedag0927-creator/emma-glow2/App.tsx';
+
+    const root = createRoot(document.getElementById('root'));
+    root.render(React.createElement(App));
+  </script>
+</body>
 </html>
