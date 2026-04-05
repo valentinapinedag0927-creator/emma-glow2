@@ -15,7 +15,7 @@ import ProductHistory from './components/ProductHistory';
 import AbstractText from './components/AbstractText';
 import AnimatedAvatar from './components/AnimatedAvatar';
 import { parseProductsCSV } from './constants';
-import { CheckCircle, AlertCircle, Smile, Search, Star, Heart, Sparkles, TrendingUp, Camera, ScanBarcode, FlaskConical, MessageCircleHeart, LogOut } from 'lucide-react';
+import { CheckCircle, AlertCircle, Smile, Search, Star, Heart, Sparkles, TrendingUp, Camera, ScanBarcode, FlaskConical, MessageCircleHeart } from 'lucide-react';
 
 // INTRO FLASH COMPONENT (Golden Sparkle Burst - 1 Second)
 const IntroFlash = ({ onComplete }: { onComplete: () => void }) => {
