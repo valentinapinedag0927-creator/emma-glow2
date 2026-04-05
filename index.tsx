@@ -2,16 +2,18 @@ import React from 'react';
 import ReactDOM from 'react-dom/client';
 import App from './App';
 
-const container = document.getElementById('root');
+console.log("Intentando arrancar React...");
 
-if (container) {
-  const root = ReactDOM.createRoot(container);
-  root.render(<App />);
+const rootElement = document.getElementById('root');
+
+if (rootElement) {
+  const root = ReactDOM.createRoot(rootElement);
+  root.render(
+    <React.StrictMode>
+      <App />
+    </React.StrictMode>
+  );
+  console.log("React renderizado en #root");
 } else {
-  // Plan B: Si no lo encuentra, lo crea a la fuerza
-  const newDiv = document.createElement('div');
-  newDiv.id = 'root';
-  document.body.appendChild(newDiv);
-  const root = ReactDOM.createRoot(newDiv);
-  root.render(<App />);
+  alert("ERROR: No se encontró el div 'root' en el HTML");
 }
