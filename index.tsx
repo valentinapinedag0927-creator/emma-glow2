@@ -2,21 +2,14 @@ import React from 'react';
 import ReactDOM from 'react-dom/client';
 import App from './App';
 
-// Esto asegura que React espere a que el HTML esté listo
-const renderApp = () => {
-  const rootElement = document.getElementById('root');
-  if (rootElement) {
-    const root = ReactDOM.createRoot(rootElement);
-    root.render(
-      <React.StrictMode>
-        <App />
-      </React.StrictMode>
-    );
+const start = () => {
+  const el = document.getElementById('root');
+  if (el) {
+    const root = ReactDOM.createRoot(el);
+    root.render(<App />);
+  } else {
+    console.error("No encontré el div 'root'. Revisa el index.html");
   }
 };
 
-if (document.readyState === 'loading') {
-  document.addEventListener('DOMContentLoaded', renderApp);
-} else {
-  renderApp();
-}
+window.onload = start;
