@@ -6,36 +6,50 @@
   <title>Emma Glow</title>
   
   <script src="https://cdn.tailwindcss.com"></script>
-  <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400;0,700;1,400&family=Inter:wght@300;400;600&display=swap" rel="stylesheet">
+  <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,700;1,700&family=Inter:wght@400;600&display=swap" rel="stylesheet">
 
   <script>
     tailwind.config = {
       theme: {
         extend: {
           fontFamily: {
-            serif: ['Playfair Display', 'serif'],
-            sans: ['Inter', 'sans-serif'],
-          },
-          colors: {
-            'emma-pink': '#db2777',
-            'emma-light': '#fdf2f2',
+            'serif': ['Playfair Display', 'serif'],
+            'sans': ['Inter', 'sans-serif'],
           }
         }
       }
     }
   </script>
+
   <style>
-    /* Esto evita que el logo se rompa y se ponga vertical */
-    .logo-container { white-space: nowrap; min-width: fit-content; }
-    body { background-color: #fdf2f2; margin: 0; font-family: 'Inter', sans-serif; }
+    /* ESTO ARREGLA EL LOGO VERTICAL */
+    .font-serif { 
+      font-family: 'Playfair Display', serif !important;
+      white-space: nowrap !important; /* Prohibido ponerse vertical */
+      display: inline-block !important;
+    }
+    
+    /* Colores de fondo originales */
+    body { 
+      background: #fdf2f2 !important; 
+      margin: 0;
+    }
+
+    /* Arreglo para que las tarjetas se vean bien */
+    .glass-card {
+      background: rgba(255, 255, 255, 0.8);
+      backdrop-filter: blur(10px);
+    }
   </style>
 </head>
 <body>
   <div id="root"></div>
+
   <script type="module">
     import { createRoot } from 'https://esm.sh/react-dom/client';
     import React from 'https://esm.sh/react';
-    // Usamos el cargador de esm.sh para que entienda tu App.tsx
+    
+    // Este import carga tu App.tsx y lo traduce al instante
     import App from 'https://esm.sh/gh/valentinapinedag0927-creator/emma-glow2/App.tsx?bundle';
 
     const root = createRoot(document.getElementById('root'));
