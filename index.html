@@ -4,16 +4,17 @@
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <title>Emma Glow</title>
-  
   <script src="https://cdn.tailwindcss.com"></script>
-  <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,700;1,700&family=Inter:wght@400;600&display=swap" rel="stylesheet">
-
+  
+  <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@700&display=swap" rel="stylesheet">
+  
   <script>
+    // Esto le dice a Tailwind que reconozca tus colores
     tailwind.config = {
-   extend: {
-        colors: {
-          'pink': {
-            600: '#db2777', // Este es el rosa fuerte de tu image
+      theme: {
+        extend: {
+          colors: {
+            'emma-pink': '#ec4899',
           }
         }
       }
@@ -21,24 +22,13 @@
   </script>
 
   <style>
-    /* ESTO ARREGLA EL LOGO VERTICAL */
+    /* Arregla el logo para que sea horizontal y use la fuente linda */
     .font-serif { 
       font-family: 'Playfair Display', serif !important;
-      white-space: nowrap !important; /* Prohibido ponerse vertical */
+      white-space: nowrap !important;
       display: inline-block !important;
     }
-    
-    /* Colores de fondo originales */
-    body { 
-      background: #fdf2f2 !important; 
-      margin: 0;
-    }
-
-    /* Arreglo para que las tarjetas se vean bien */
-    .glass-card {
-      background: rgba(255, 255, 255, 0.8);
-      backdrop-filter: blur(10px);
-    }
+    body { background-color: #fdf2f2; }
   </style>
 </head>
 <body>
