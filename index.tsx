@@ -2,10 +2,10 @@ import React from 'react';
 import ReactDOM from 'react-dom/client';
 import App from './App';
 
-console.log("Intentando arrancar React...");
+// Este mensaje aparecerá en la consola si el archivo carga
+console.log("¡Hola! El motor de Emma Glow ha despertado.");
 
 const rootElement = document.getElementById('root');
-
 if (rootElement) {
   const root = ReactDOM.createRoot(rootElement);
   root.render(
@@ -13,7 +13,6 @@ if (rootElement) {
       <App />
     </React.StrictMode>
   );
-  console.log("React renderizado en #root");
 } else {
-  alert("ERROR: No se encontró el div 'root' en el HTML");
+  alert("No encontré el div 'root'. Revisa el HTML.");
 }
