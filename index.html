@@ -13,17 +13,12 @@
 <script type="module">
   import { createRoot } from 'https://esm.sh/react-dom/client';
   import React from 'https://esm.sh/react';
+  // Este es el "traductor" que lee tu archivo App.tsx
+  import App from 'https://esm.sh/gh/valentinapinedag0927-creator/emma-glow2/App.tsx';
 
-  // Intentamos forzar un mensaje directo en pantalla
   const root = createRoot(document.getElementById('root'));
-  root.render(React.createElement('h1', { 
-    style: { 
-      color: '#db2777', 
-      textAlign: 'center', 
-      marginTop: '50px',
-      fontFamily: 'sans-serif' 
-    } 
-  }, '¡React está vivo! Ahora intentaremos cargar el escáner...'));
+  // Aquí es donde sucede la magia y aparece tu diseño
+  root.render(React.createElement(App));
 </script>
   </body>
 </html>
