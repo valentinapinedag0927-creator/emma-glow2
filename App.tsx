@@ -15,7 +15,7 @@ import ProductHistory from './components/ProductHistory';
 import AbstractText from './components/AbstractText';
 import AnimatedAvatar from './components/AnimatedAvatar';
 import { parseProductsCSV } from './constants';
-import { CheckCircle, AlertCircle, Smile, Search, Star, Heart, Sparkles, TrendingUp, Camera, ScanBarcode, FlaskConical, MessageCircleHeart } from 'lucide-react';
+import { CheckCircle, AlertCircle, Smile, Search, Star, Heart, Sparkles, TrendingUp, Camera, ScanBarcode, FlaskConical, MessageCircleHeart, LogOut } from 'lucide-react';
 
 // INTRO FLASH COMPONENT (Golden Sparkle Burst - 1 Second)
 const IntroFlash = ({ onComplete }: { onComplete: () => void }) => {
@@ -38,7 +38,7 @@ const IntroFlash = ({ onComplete }: { onComplete: () => void }) => {
 
   return (
     <div className="fixed inset-0 z-[9999] flex items-center justify-center bg-white pointer-events-none overflow-hidden animate-[fadeOut_1s_ease-in-out_forwards]">
-       <div className="relative w-full h-full flex items-center justify-center">
+        <div className="relative w-full h-full flex items-center justify-center">
           
           {/* Central Golden Burst (Flash) */}
           <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[150vmax] h-[150vmax] bg-radial-gradient from-emma-gold/40 via-yellow-100/20 to-transparent animate-[pulse_0.5s_ease-out_infinite]"></div>
@@ -46,12 +46,12 @@ const IntroFlash = ({ onComplete }: { onComplete: () => void }) => {
 
           {/* Core Shine */}
           <div className="absolute z-20 animate-[ping_0.8s_cubic-bezier(0,0,0.2,1)_infinite]">
-             <Sparkles size={180} className="text-emma-gold fill-emma-gold drop-shadow-[0_0_50px_rgba(255,215,0,1)]" />
+              <Sparkles size={180} className="text-emma-gold fill-emma-gold drop-shadow-[0_0_50px_rgba(255,215,0,1)]" />
           </div>
 
           {/* Random Small Brighter Sparkles everywhere */}
           {randomSparkles.map((s) => (
-             <div 
+              <div 
                 key={s.id}
                 className="absolute bg-yellow-300 rounded-full shadow-[0_0_10px_#FDB022] animate-twinkle"
                 style={{
@@ -62,12 +62,12 @@ const IntroFlash = ({ onComplete }: { onComplete: () => void }) => {
                     animationDelay: s.delay,
                     animationDuration: s.duration
                 }}
-             />
+              />
           ))}
           
           {/* White Overlay to fade out */}
           <div className="absolute inset-0 bg-white/20 mix-blend-overlay"></div>
-       </div>
+        </div>
     </div>
   );
 };
@@ -301,7 +301,7 @@ const App: React.FC = () => {
 
         {view === ViewState.REACTION && (
           <div className="w-full max-w-6xl mx-auto pt-4 md:pt-10 pb-24">
-             {!reviewProduct ? (
+              {!reviewProduct ? (
                 <div className="space-y-6 animate-pop-in">
                     <div className="text-center mb-8">
                         <div className="w-24 h-24 bg-emma-almond/80 rounded-full flex items-center justify-center mx-auto mb-4 shadow-lg ring-4 ring-white">
