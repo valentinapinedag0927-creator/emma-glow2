@@ -20,7 +20,6 @@ export interface Product {
   imageUrl: string;
   precio: number;
   categoria: string;
-  ingredientes?: string[];
 }
 
 export interface CartItem extends Product {
