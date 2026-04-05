@@ -17,7 +17,7 @@ import { parseProductsCSV } from './constants';
 import { CheckCircle, AlertCircle, Smile, Search, Star, Heart, Sparkles, TrendingUp, Camera, ScanBarcode, FlaskConical, MessageCircleHeart, LogOut } from 'lucide-react';
 
 // --- INTRO FLASH COMPONENT ---
-const IntroFlash = ({ onComplete }: { onComplete: () => void }) => {
+const IntroFlash: React.FC<{ onComplete: () => void }> = ({ onComplete }) => {
   useEffect(() => {
     const timer = setTimeout(() => {
       onComplete();
@@ -59,7 +59,7 @@ const SELF_LOVE_QUOTES = [
     "Tu sonrisa es tu mejor accesorio 😊", "Cuidarte es un acto de amor revolucionario 💪", "Eres suficiente tal y como eres 💫"
 ];
 
-const App: React.FC = () => {
+export default function App() {
   const [user, setUser] = useState<User>({ username: '', isLoggedIn: false, history: [], routineHistory: [], trackers: [] });
   const [view, setView] = useState<ViewState>(ViewState.HOME);
   const [cart, setCart] = useState<CartItem[]>([]);
@@ -105,7 +105,7 @@ const App: React.FC = () => {
   if (!user.isLoggedIn) return <Login onLogin={handleLogin} />;
 
   return (
-    <div className="min-h-screen text-black pb-20 md:pb-0 font-sans relative overflow-x-hidden bg-[url('https://www.transparenttextures.com/patterns/cubes.png')]">
+    <div className="min-h-screen text-black pb-20 md:pb-0 font-sans relative overflow-x-hidden bg-white">
       {showIntro && <IntroFlash onComplete={() => setShowIntro(false)} />}
       
       <div className="fixed top-10 left-10 w-40 h-40 bg-pink-300 rounded-full blur-3xl opacity-30 animate-blob pointer-events-none -z-10"></div>
@@ -113,7 +113,7 @@ const App: React.FC = () => {
 
       {toast.type && (
         <div className="fixed top-4 md:top-24 left-1/2 -translate-x-1/2 z-[60] animate-pop-in w-[90%] max-w-sm">
-            <div className={`glass-panel p-4 rounded-2xl shadow-2xl border-2 flex items-center gap-3 ${toast.type === 'success' ? 'border-green-300 bg-green-50' : 'border-red-300 bg-red-50'}`}>
+            <div className={`p-4 rounded-2xl shadow-2xl border-2 flex items-center gap-3 ${toast.type === 'success' ? 'border-green-300 bg-green-50' : 'border-red-300 bg-red-50'}`}>
                 {toast.type === 'success' ? <CheckCircle className="text-green-600" /> : <AlertCircle className="text-red-600" />}
                 <p className="font-bold">{toast.message}</p>
             </div>
@@ -131,42 +131,38 @@ const App: React.FC = () => {
              </div>
              
              <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6">
-                <div onClick={() => setView(ViewState.ANALYSIS)} className="glass-card p-6 rounded-[2rem] cursor-pointer group hover:bg-white border-4 border-white shadow-lg transition-all">
+                <div onClick={() => setView(ViewState.ANALYSIS)} className="bg-white/40 p-6 rounded-[2rem] cursor-pointer group hover:bg-white border-4 border-white shadow-lg transition-all">
                     <div className="w-24 h-24 bg-pink-100 rounded-full flex items-center justify-center mx-auto mb-4 group-hover:scale-110 transition-transform">
                         <Camera size={48} className="text-pink-500" />
                     </div>
-                    <h3 className="font-serif text-3xl text-emma-tickled">Analiza</h3>
-                    <p className="text-sm font-medium">Descubre lo que tu piel necesita hoy.</p>
+                    <h3 className="font-serif text-3xl text-pink-600">Analiza</h3>
                 </div>
 
-                <div onClick={() => setView(ViewState.INGREDIENTS)} className="glass-card p-6 rounded-[2rem] cursor-pointer group hover:bg-white border-4 border-white shadow-lg transition-all">
+                <div onClick={() => setView(ViewState.INGREDIENTS)} className="bg-white/40 p-6 rounded-[2rem] cursor-pointer group hover:bg-white border-4 border-white shadow-lg transition-all">
                     <div className="w-24 h-24 bg-yellow-100 rounded-full flex items-center justify-center mx-auto mb-4 group-hover:scale-110 transition-transform">
                         <ScanBarcode size={48} className="text-yellow-600" />
                     </div>
                     <h3 className="font-serif text-3xl text-yellow-600">Scanner</h3>
-                    <p className="text-sm font-medium">¿Es seguro? Revisa ingredientes.</p>
                 </div>
 
-                <div onClick={() => setView(ViewState.ROUTINE_BUILDER)} className="glass-card p-6 rounded-[2rem] cursor-pointer group hover:bg-white border-4 border-white shadow-lg transition-all">
+                <div onClick={() => setView(ViewState.ROUTINE_BUILDER)} className="bg-white/40 p-6 rounded-[2rem] cursor-pointer group hover:bg-white border-4 border-white shadow-lg transition-all">
                     <div className="w-24 h-24 bg-purple-100 rounded-full flex items-center justify-center mx-auto mb-4 group-hover:scale-110 transition-transform">
                         <FlaskConical size={48} className="text-purple-500" />
                     </div>
                     <h3 className="font-serif text-3xl text-purple-500">Mixer</h3>
-                    <p className="text-sm font-medium">Crea pócimas para tu rutina.</p>
                 </div>
 
-                <div onClick={() => setView(ViewState.ADVISOR)} className="glass-card p-6 rounded-[2rem] cursor-pointer group hover:bg-white border-4 border-white shadow-lg transition-all">
+                <div onClick={() => setView(ViewState.ADVISOR)} className="bg-white/40 p-6 rounded-[2rem] cursor-pointer group hover:bg-white border-4 border-white shadow-lg transition-all">
                     <div className="mb-4 group-hover:scale-105 transition-transform">
                         <AnimatedAvatar size="md" />
                     </div>
                     <h3 className="font-serif text-3xl text-blue-400">Emma Chat</h3>
-                    <p className="text-sm font-medium">Tu mejor amiga experta.</p>
                 </div>
              </div>
 
              <div className="mt-16 bg-white/60 p-6 rounded-3xl border-2 border-pink-100 shadow-lg relative max-w-md mx-auto transform rotate-1">
                 <Heart className="absolute -top-3 -right-3 text-pink-400 animate-bounce" />
-                <p className="font-serif text-xl text-emma-tickled italic">"{randomQuote}"</p>
+                <p className="font-serif text-xl italic">"{randomQuote}"</p>
              </div>
           </div>
         )}
@@ -183,38 +179,28 @@ const App: React.FC = () => {
         {view === ViewState.REACTION && (
           <div className="w-full max-w-6xl mx-auto pt-4 md:pt-10 pb-24">
             {!reviewProduct ? (
-              <div className="space-y-6 animate-pop-in">
+              <div className="space-y-6">
                 <div className="text-center mb-8">
-                    <div className="w-24 h-24 bg-emma-almond/80 rounded-full flex items-center justify-center mx-auto mb-4 shadow-lg ring-4 ring-white">
-                        <Smile className="text-emma-tickled" size={48} />
-                    </div>
+                    <Smile className="text-pink-500 mx-auto" size={48} />
                     <AbstractText text="Reacciones" baseSize="lg" />
-                    <p className="text-black font-sans italic text-lg max-w-md mx-auto">Califica tus productos para mejorar el algoritmo.</p>
                 </div>
-                <div className="sticky top-20 z-20 bg-white/70 backdrop-blur-xl p-3 rounded-2xl border-2 border-pink-100 shadow-lg mb-4 max-w-2xl mx-auto">
-                    <div className="relative">
-                        <Search className="absolute left-4 top-1/2 -translate-y-1/2 text-pink-400" size={20} />
-                        <input 
-                            type="text" 
-                            placeholder="Buscar producto por nombre..." 
-                            className="w-full pl-12 pr-4 py-3 rounded-xl bg-transparent focus:outline-none placeholder-gray-500 text-black text-lg" 
-                            value={reactionSearch} 
-                            onChange={(e) => setReactionSearch(e.target.value)} 
-                        />
-                    </div>
+                <div className="sticky top-20 z-20 bg-white/70 backdrop-blur-xl p-3 rounded-2xl border-2 border-pink-100 shadow-lg mb-4 max-w-2xl mx-auto flex items-center px-4">
+                    <Search className="text-pink-400 mr-2" size={20} />
+                    <input 
+                        type="text" 
+                        placeholder="Buscar producto..." 
+                        className="w-full py-3 bg-transparent focus:outline-none" 
+                        value={reactionSearch} 
+                        onChange={(e) => setReactionSearch(e.target.value)} 
+                    />
                 </div>
-                <div className="grid grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-6">
+                <div className="grid grid-cols-2 md:grid-cols-4 gap-6">
                   {parseProductsCSV()
-                    .filter(p => p.nombre.toLowerCase().includes(reactionSearch.toLowerCase()) || p.marca.toLowerCase().includes(reactionSearch.toLowerCase()))
+                    .filter(p => p.nombre.toLowerCase().includes(reactionSearch.toLowerCase()))
                     .map(p => (
-                    <div key={p.id} onClick={() => setReviewProduct(p)} className="glass-card rounded-[2rem] cursor-pointer hover:bg-white/80 hover:shadow-xl transition-all border-2 border-white/60 overflow-hidden flex flex-col h-full group relative">
-                      <div className="h-56 bg-white overflow-hidden relative flex items-center justify-center p-6">
-                        <img src={p.imageUrl} className="w-full h-full object-contain group-hover:scale-110 transition-transform duration-700" alt={p.nombre} />
-                      </div>
-                      <div className="p-4 flex-1 flex flex-col text-center">
-                        <h3 className="font-bold text-black text-sm md:text-base line-clamp-2 leading-tight mb-2">{p.nombre}</h3>
-                        <p className="text-xs text-emma-tickled font-black uppercase mt-auto tracking-widest">{p.marca}</p>
-                      </div>
+                    <div key={p.id} onClick={() => setReviewProduct(p)} className="bg-white/60 p-4 rounded-3xl cursor-pointer hover:shadow-xl transition-all border-2 border-white overflow-hidden text-center">
+                      <img src={p.imageUrl} className="h-40 mx-auto object-contain" alt={p.nombre} />
+                      <h3 className="font-bold text-sm mt-2">{p.nombre}</h3>
                     </div>
                   ))}
                 </div>
@@ -227,6 +213,4 @@ const App: React.FC = () => {
       </main>
     </div>
   );
-};
-
-export default App;
+}
