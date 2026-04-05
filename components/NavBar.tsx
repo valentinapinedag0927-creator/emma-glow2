@@ -39,34 +39,24 @@ const NavBar: React.FC<NavBarProps> = ({ currentView, setView, cartCount, onLogo
             </div>
 
             {/* Nav Links */}
-            <div className="flex w-full md:w-auto justify-around md:justify-end md:space-x-3 overflow-x-auto md:overflow-visible no-scrollbar px-2 py-1">
-                {navItems.map((item) => (
-                <button
-                    key={item.id}
-                    onClick={() => setView(item.id)}
-                    className={`flex flex-col md:flex-row items-center space-y-1 md:space-y-0 md:space-x-2 p-2.5 rounded-2xl transition-all duration-300 flex-shrink-0 font-sans ${
-                    currentView === item.id 
-                        ? 'text-white bg-emma-tickled scale-105 font-bold shadow-lg shadow-pink-200' 
-                        : 'text-gray-500 hover:text-emma-tickled hover:bg-pink-50'
-                    }`}
-                >
-                    <div className="relative">
-                        <item.icon size={20} strokeWidth={currentView === item.id ? 2.5 : 1.5} />
-                        {item.badge ? (
-                            <span className="absolute -top-2 -right-2 bg-yellow-400 text-yellow-900 font-bold text-[10px] w-5 h-5 flex items-center justify-center rounded-full animate-bounce border border-white">
-                                {item.badge}
-                            </span>
-                        ) : null}
-                    </div>
-                    <span className="text-[10px] md:text-sm whitespace-nowrap hidden sm:block tracking-wide">{item.label}</span>
-                </button>
-                ))}
-                
-                <button onClick={onLogout} className={`flex items-center gap-2 px-4 py-2 rounded-full transition-all ${
-  currentView === item.id 
-    ? 'bg-[#ec4899] text-white shadow-md' // <-- AQUÍ es donde va el color
-    : 'text-gray-500 hover:text-[#ec4899] hover:bg-pink-50'
-}`}
+            {navItems.map((item) => (
+            <button
+              key={item.id}
+              onClick={() => setView(item.id)}
+              className={`flex flex-col md:flex-row items-center space-y-1 md:space-y-0 md:space-x-2 p-2.5 rounded-2xl transition-all ${
+                currentView === item.id
+                  ? 'text-white bg-[#ec4899] scale-105 font-bold shadow-lg shadow-pink-200'
+                  : 'text-gray-500 hover:text-[#ec4899] hover:bg-pink-50'
+              }`}
+            >
+              <div className="relative">
+                <item.icon size={20} />
+              </div>
+              <span className="text-xs md:text-sm font-medium">{item.label}</span>
+            </button>
+          ))}
+
+          
                   <LogOut size={20} />
                 </button>
             </div>
