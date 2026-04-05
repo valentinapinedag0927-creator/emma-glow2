@@ -10,6 +10,14 @@
     <div id="root">
       <h1 style="text-align: center; margin-top: 50px; color: #db2777;">Cargando Emma Glow...</h1>
     </div>
-    <script type="module" src="./index.tsx"></script>
+<script type="module">
+  import __react_refresh_runtime__ from 'https://esm.sh/react-refresh/runtime';
+  import { createRoot } from 'https://esm.sh/react-dom/client';
+  import React from 'react';
+  import App from './App.tsx'; // <--- Aquí sí ponemos el .tsx
+
+  const root = createRoot(document.getElementById('root'));
+  root.render(React.createElement(App));
+</script>
   </body>
 </html>
