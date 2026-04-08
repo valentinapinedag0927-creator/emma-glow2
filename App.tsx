@@ -1,4 +1,4 @@
-import React, { useState, useEffect } from 'react';
+import * as React from 'react';
 import { User, ViewState, CartItem, Product, AnalysisResult } from './types';
 import Login from './components/Login';
 import NavBar from './components/NavBar';
@@ -83,17 +83,17 @@ const SELF_LOVE_QUOTES = [
 ];
 
 const App: React.FC = () => {
-  const [user, setUser] = useState<User>({ username: '', isLoggedIn: false, history: [], routineHistory: [], trackers: [] });
-  const [view, setView] = useState<ViewState>(ViewState.HOME);
-  const [cart, setCart] = useState<CartItem[]>([]);
-  const [toast, setToast] = useState<{message: string, type: 'success' | 'error' | null}>({ message: '', type: null });
-  const [reviewProduct, setReviewProduct] = useState<Product | null>(null);
-  const [reactionSearch, setReactionSearch] = useState("");
-  const [showIntro, setShowIntro] = useState(false);
-  const [randomQuote, setRandomQuote] = useState(SELF_LOVE_QUOTES[0]);
+  const [user, setUser] = React.useState<User>({ username: '', isLoggedIn: false, history: [], routineHistory: [], trackers: [] });
+  const [view, setView] = React.useState<ViewState>(ViewState.HOME);
+  const [cart, setCart] = React.useState<CartItem[]>([]);
+  const [toast, setToast] = React.useState<{message: string, type: 'success' | 'error' | null}>({ message: '', type: null });
+  const [reviewProduct, setReviewProduct] = React.useState<Product | null>(null);
+  const [reactionSearch, setReactionSearch] = React.useState("");
+  const [showIntro, setShowIntro] = React.useState(false);
+  const [randomQuote, setRandomQuote] = React.useState(SELF_LOVE_QUOTES[0]);
 
   // Trigger intro when logging in or refreshing if user is logged in
-  useEffect(() => {
+  React.useEffect(() => {
     if (user.isLoggedIn) {
         setShowIntro(true);
         // Randomize quote on entry
