@@ -1,7 +1,7 @@
 {
   "name": "emma-glow",
-  "private": true,
-  "version": "0.0.0",
+  "homepage": "https://valentinapinedag0927-creator.github.io/emma-glow2/",
+  "version": "0.1.0",
   "type": "module",
   "scripts": {
     "dev": "vite",
