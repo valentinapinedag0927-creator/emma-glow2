@@ -18,7 +18,7 @@ import { CheckCircle, AlertCircle, Smile, Search, Star, Heart, Sparkles, Trendin
 
 // INTRO FLASH COMPONENT (Golden Sparkle Burst - 1 Second)
 const IntroFlash = ({ onComplete }: { onComplete: () => void }) => {
-  useEffect(() => {
+  React.useEffect(() => {
     const timer = setTimeout(() => {
       onComplete();
     }, 1000); // 1 second flash as requested
