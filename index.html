@@ -1,48 +1,41 @@
 <!DOCTYPE html>
 <html lang="es">
 <head>
-  <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>Emma Glow</title>
-  <script src="https://cdn.tailwindcss.com"></script>
-  
-  <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@700&display=swap" rel="stylesheet">
-  
-  <script>
-    // Esto le dice a Tailwind que reconozca tus colores
-    tailwind.config = {
-      theme: {
-        extend: {
-          colors: {
-            'emma-pink': '#ec4899',
-          }
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Emma Glow</title>
+    <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@700&display=swap" rel="stylesheet">
+    <style>
+        .font-serif {
+            font-family: 'Playfair Display', serif !important;
+            white-space: nowrap !important;
+            display: inline-block !important;
         }
-      }
-    }
-  </script>
-
-  <style>
-    /* Arregla el logo para que sea horizontal y use la fuente linda */
-    .font-serif { 
-      font-family: 'Playfair Display', serif !important;
-      white-space: nowrap !important;
-      display: inline-block !important;
-    }
-    body { background-color: #fdf2f2; }
-  </style>
+        body { background-color: #fdf2f2; }
+    </style>
 </head>
 <body>
-  <div id="root"></div>
-
-  <script type="module">
-    import { createRoot } from 'https://esm.sh/react-dom/client';
-    import React from 'https://esm.sh/react';
-    
-    // Este import carga tu App.tsx y lo traduce al instante
-    import App from 'https://esm.sh/gh/valentinapinedag0927-creator/emma-glow2/App.tsx?bundle';
-
-    const root = createRoot(document.getElementById('root'));
-    root.render(React.createElement(App));
-  </script>
+    <div id="root"></div>
+    <script type="module" src="/src/index.tsx"></script>
+</body>
+</html><!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Emma Glow</title>
+    <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@700&display=swap" rel="stylesheet">
+    <style>
+        .font-serif {
+            font-family: 'Playfair Display', serif !important;
+            white-space: nowrap !important;
+            display: inline-block !important;
+        }
+        body { background-color: #fdf2f2; }
+    </style>
+</head>
+<body>
+    <div id="root"></div>
+    <script type="module" src="/src/index.tsx"></script>
 </body>
 </html>
